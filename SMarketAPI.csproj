@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20181005221826_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181005224704_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006035739_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006040130_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006043730_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006043944_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006044045_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006073415_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006075145_testProduct.cs" />
+    <Compile Remove="Migrations\20181006075458_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006080649_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181006080754_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007070001_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007070253_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007070629_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007070731_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007071125_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007071343_InitialCreate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="24.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+</Project>

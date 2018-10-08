@@ -1,0 +1,28 @@
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.deps.json
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.runtimeconfig.json
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.runtimeconfig.dev.json
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.dll
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.pdb
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.csprojAssemblyReference.cache
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.csproj.CoreCompileInputs.cache
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorAssemblyInfo.cache
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorAssemblyInfo.cs
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.AssemblyInfoInputs.cache
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.AssemblyInfo.cs
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorTargetAssemblyInfo.cache
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.dll
+c:\users\shep\source\repos\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.pdb
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.deps.json
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.runtimeconfig.json
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.runtimeconfig.dev.json
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.dll
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\bin\Debug\netcoreapp2.1\SMarketAPI.pdb
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.csproj.CoreCompileInputs.cache
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorAssemblyInfo.cache
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorAssemblyInfo.cs
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.AssemblyInfoInputs.cache
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.AssemblyInfo.cs
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.RazorTargetAssemblyInfo.cache
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.dll
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.pdb
+Z:\INFOR ARCH\PrimeraPractica\SMarketAPI\SMarketAPI\obj\Debug\netcoreapp2.1\SMarketAPI.csprojAssemblyReference.cache
