@@ -69,8 +69,14 @@ namespace SMarketAPI.Controllers
 
             // _context.Entry(product).State = EntityState.Modified;
             _context.Update(product);
+            var productDB = _context.Products.Single(a => a.ProductId == product.ProductId);
+            var images = _context.Image.Where(b=>EF.Property<int>(b,"ProductId")==product.ProductId);
+            foreach(var image in images)
+            {
+                productDB.Images.Remove(image);
+            }
             //_context.Entry(product).Property(x=> x.Images).IsModified = false;
-
+            _context.Update(product);
 
             try
             {

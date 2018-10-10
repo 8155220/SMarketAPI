@@ -9,6 +9,7 @@ namespace SMarketAPI.Models
     {
         public int ImageId { get; set; }
         public string Url { get; set; }
+        public Boolean isMain { get; set;}
         public int ProductId { get; set;}
         //Navigation properties
         public virtual Product Product { get; set; }
