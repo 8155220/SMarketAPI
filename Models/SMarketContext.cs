@@ -22,11 +22,12 @@ namespace SMarketAPI.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
-        modelBuilder.Entity<Product>()
+        /*modelBuilder.Entity<Product>()
                 .HasMany(p => p.Images)
                 .WithOne(img => img.Product);
+
         modelBuilder.Entity<Product>()
-                .HasOne(p => p.ProductType);
+                .HasOne(p => p.ProductType); */
 
             /*modelBuilder.Entity<Product>()
                 .HasOne(p => p.PrincipalImage)
@@ -91,18 +92,22 @@ namespace SMarketAPI.Models
                 new UnitType
                 {
                     UnitTypeId = 1,
+                    Symbol="kg",
                     Description = "kilos"
                 }, new UnitType
                 {
                     UnitTypeId = 2,
+                    Symbol = "gr",
                     Description = "gramos"
                 }, new UnitType
                 {
                     UnitTypeId = 3,
+                    Symbol = "lt",
                     Description = "litros"
                 }, new UnitType
                 {
                     UnitTypeId = 4,
+                    Symbol = "ml",
                     Description = "mililitros"
                 }
                 );
@@ -114,13 +119,13 @@ namespace SMarketAPI.Models
                 .StrictMode(false)
                 .RuleFor(pt => pt.ProductId, f => id++)
                 .RuleFor(pt => pt.Name, f => f.Commerce.ProductName())
-                .RuleFor(pt => pt.SellPrice, f => f.Finance.Amount().ToString())
-                .RuleFor(pt => pt.BuyPrice, f => f.Finance.Amount().ToString())
-                .RuleFor(pt => pt.ExpirationDate, f => f.Date.Future().ToString())
+                .RuleFor(pt => pt.SellPrice, f => f.Finance.Amount())
+                .RuleFor(pt => pt.BuyPrice, f => f.Finance.Amount())
+                .RuleFor(pt => pt.ExpirationDate, f => f.Date.Future())
                 .RuleFor(pt => pt.Description, f => f.Lorem.Sentence())
                 .RuleFor(pt => pt.Image, f => f.Internet.Avatar())
                 ;
-            var product = testProduct.Generate(10);
+            var product = testProduct.Generate(5);
 
             product.ForEach(x => modelBuilder.Entity<Product>().HasData(
                 new

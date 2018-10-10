@@ -23,6 +23,9 @@
     <Compile Remove="Migrations\20181007070731_InitialCreate.cs" />
     <Compile Remove="Migrations\20181007071125_InitialCreate.cs" />
     <Compile Remove="Migrations\20181007071343_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181007071454_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181008040723_InitialCreate.cs" />
+    <Compile Remove="Migrations\20181008044735_InitialCreat.cs" />
   </ItemGroup>
 
   <ItemGroup>

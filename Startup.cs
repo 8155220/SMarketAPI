@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SMarketAPI.Data;
 using SMarketAPI.Models;
 
 namespace SMarketAPI
@@ -27,12 +28,18 @@ namespace SMarketAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<SMarketContext>(opt => opt.UseInMemoryDatabase("SMarket"));
-
-            var connection = @"Server=(SHPDESKTOP)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            
             services.AddDbContext<SMarketContext>
                      (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultDatabase")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(opt=>
+                {
+                    opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    //Temporal Solution
+                });
+            services.AddCors(); //??
+            services.AddScoped<ISMarketRepository, SMarketRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +53,8 @@ namespace SMarketAPI
             {
                 app.UseHsts();
             }
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials() //old
+            );
             app.UseHttpsRedirection();
             app.UseMvc();
         }

@@ -5,39 +5,31 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SMarketAPI.Data;
+using Newtonsoft.Json;
 using SMarketAPI.Models;
-
 namespace SMarketAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly SMarketContext _context;
-        private readonly ISMarketRepository _repo;
 
-        /*public ProductController(SMarketContext context)
+        public ProductsController(SMarketContext context)
         {
             _context = context;
         }
-        */
-        public ProductController(SMarketContext context,ISMarketRepository repo)
-        {
-            _context = context;
-            _repo = repo;
-        }
 
-        // GET: api/Product
+        // GET: api/Products
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            //return _context.Products;
-            var products = await _repo.GetProducts();
+            var products= await _context.Products.Include(p => p.Images).ToListAsync();
+
             return Ok(products);
         }
 
-        // GET: api/Product/5
+        // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct([FromRoute] int id)
         {
@@ -46,8 +38,8 @@ namespace SMarketAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var product = await _repo.GetProduct(id);
-        
+            var product = await _context.Products.Include(p => p.Images).FirstAsync(p => p.ProductId == id);
+
             if (product == null)
             {
                 return NotFound();
@@ -56,10 +48,15 @@ namespace SMarketAPI.Controllers
             return Ok(product);
         }
 
-        // PUT: api/Product/5
+        // PUT: api/Products/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct([FromRoute] int id, [FromBody] Product product)
         {
+
+            Console.WriteLine("ErrorAQui");
+            //JsonConvert.DeserializeObject(product);
+            string json = JsonConvert.SerializeObject(product, Formatting.Indented);
+            Console.WriteLine(json);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -70,11 +67,12 @@ namespace SMarketAPI.Controllers
                 return BadRequest();
             }
 
-            //_context.Entry(product).State = EntityState.Modified;
-            var auxproduct = _repo.PutProduct(id, product);
-            return Ok(auxproduct);
+            // _context.Entry(product).State = EntityState.Modified;
+            _context.Update(product);
+            //_context.Entry(product).Property(x=> x.Images).IsModified = false;
 
-           /* try
+
+            try
             {
                 await _context.SaveChangesAsync();
             }
@@ -88,12 +86,12 @@ namespace SMarketAPI.Controllers
                 {
                     throw;
                 }
-            }*/
+            }
 
-            //return NoContent();
+            return NoContent();
         }
 
-        // POST: api/Product
+        // POST: api/Products
         [HttpPost]
         public async Task<IActionResult> PostProduct([FromBody] Product product)
         {
@@ -108,7 +106,7 @@ namespace SMarketAPI.Controllers
             return CreatedAtAction("GetProduct", new { id = product.ProductId }, product);
         }
 
-        // DELETE: api/Product/5
+        // DELETE: api/Products/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct([FromRoute] int id)
         {

@@ -9,9 +9,10 @@ namespace SMarketAPI.Models
     {
         // Primary key
         public int UnitTypeId { get; set; }
+        public string Symbol { get; set; }
         public string Description { get; set; }
 
-        // Navigation properties
+        // Navigation properties 
         //public virtual ICollection<Product> Products { get; set; }
     }
 }

@@ -11,56 +11,56 @@ namespace SMarketAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductTypeController : ControllerBase
+    public class UnitTypesController : ControllerBase
     {
         private readonly SMarketContext _context;
 
-        public ProductTypeController(SMarketContext context)
+        public UnitTypesController(SMarketContext context)
         {
             _context = context;
         }
 
-        // GET: api/ProductType
+        // GET: api/UnitTypes
         [HttpGet]
-        public IEnumerable<ProductType> GetProductType()
+        public IEnumerable<UnitType> GetUnitType()
         {
-            return _context.ProductType;
+            return _context.UnitType;
         }
 
-        // GET: api/ProductType/5
+        // GET: api/UnitTypes/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductType([FromRoute] int id)
+        public async Task<IActionResult> GetUnitType([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var productType = await _context.ProductType.FindAsync(id);
+            var unitType = await _context.UnitType.FindAsync(id);
 
-            if (productType == null)
+            if (unitType == null)
             {
                 return NotFound();
             }
 
-            return Ok(productType);
+            return Ok(unitType);
         }
 
-        // PUT: api/ProductType/5
+        // PUT: api/UnitTypes/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductType([FromRoute] int id, [FromBody] ProductType productType)
+        public async Task<IActionResult> PutUnitType([FromRoute] int id, [FromBody] UnitType unitType)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != productType.ProductTypeId)
+            if (id != unitType.UnitTypeId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(productType).State = EntityState.Modified;
+            _context.Entry(unitType).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace SMarketAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductTypeExists(id))
+                if (!UnitTypeExists(id))
                 {
                     return NotFound();
                 }
@@ -81,45 +81,45 @@ namespace SMarketAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/ProductType
+        // POST: api/UnitTypes
         [HttpPost]
-        public async Task<IActionResult> PostProductType([FromBody] ProductType productType)
+        public async Task<IActionResult> PostUnitType([FromBody] UnitType unitType)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.ProductType.Add(productType);
+            _context.UnitType.Add(unitType);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProductType", new { id = productType.ProductTypeId }, productType);
+            return CreatedAtAction("GetUnitType", new { id = unitType.UnitTypeId }, unitType);
         }
 
-        // DELETE: api/ProductType/5
+        // DELETE: api/UnitTypes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductType([FromRoute] int id)
+        public async Task<IActionResult> DeleteUnitType([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var productType = await _context.ProductType.FindAsync(id);
-            if (productType == null)
+            var unitType = await _context.UnitType.FindAsync(id);
+            if (unitType == null)
             {
                 return NotFound();
             }
 
-            _context.ProductType.Remove(productType);
+            _context.UnitType.Remove(unitType);
             await _context.SaveChangesAsync();
 
-            return Ok(productType);
+            return Ok(unitType);
         }
 
-        private bool ProductTypeExists(int id)
+        private bool UnitTypeExists(int id)
         {
-            return _context.ProductType.Any(e => e.ProductTypeId == id);
+            return _context.UnitType.Any(e => e.UnitTypeId == id);
         }
     }
 }

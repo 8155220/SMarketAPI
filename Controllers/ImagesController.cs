@@ -11,25 +11,25 @@ namespace SMarketAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ImageController : ControllerBase
+    public class ImagesController : ControllerBase
     {
         private readonly SMarketContext _context;
 
-        public ImageController(SMarketContext context)
+        public ImagesController(SMarketContext context)
         {
             _context = context;
         }
 
-        // GET: api/Image
+        // GET: api/Images
         [HttpGet]
         public IEnumerable<Image> GetImage()
         {
             return _context.Image;
         }
 
-        // GET: api/Image/5
+        // GET: api/Images/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetImage([FromRoute] long id)
+        public async Task<IActionResult> GetImage([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -46,9 +46,9 @@ namespace SMarketAPI.Controllers
             return Ok(image);
         }
 
-        // PUT: api/Image/5
+        // PUT: api/Images/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutImage([FromRoute] long id, [FromBody] Image image)
+        public async Task<IActionResult> PutImage([FromRoute] int id, [FromBody] Image image)
         {
             if (!ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace SMarketAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Image
+        // POST: api/Images
         [HttpPost]
         public async Task<IActionResult> PostImage([FromBody] Image image)
         {
@@ -96,9 +96,9 @@ namespace SMarketAPI.Controllers
             return CreatedAtAction("GetImage", new { id = image.ImageId }, image);
         }
 
-        // DELETE: api/Image/5
+        // DELETE: api/Images/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteImage([FromRoute] long id)
+        public async Task<IActionResult> DeleteImage([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -117,7 +117,7 @@ namespace SMarketAPI.Controllers
             return Ok(image);
         }
 
-        private bool ImageExists(long id)
+        private bool ImageExists(int id)
         {
             return _context.Image.Any(e => e.ImageId == id);
         }
