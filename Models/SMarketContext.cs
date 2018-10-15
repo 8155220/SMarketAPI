@@ -22,6 +22,10 @@ namespace SMarketAPI.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Created)
+                .HasDefaultValueSql("getdate()");
+            
         /*modelBuilder.Entity<Product>()
                 .HasMany(p => p.Images)
                 .WithOne(img => img.Product);
@@ -48,7 +52,7 @@ namespace SMarketAPI.Models
 
             fakeProductTypes(modelBuilder);
             fakeUnitTypes(modelBuilder);
-            fakeProduct(modelBuilder);
+            //fakeProduct(modelBuilder);
 
         }
 
@@ -123,6 +127,7 @@ namespace SMarketAPI.Models
                 .RuleFor(pt => pt.BuyPrice, f => f.Finance.Amount())
                 .RuleFor(pt => pt.ExpirationDate, f => f.Date.Future())
                 .RuleFor(pt => pt.Description, f => f.Lorem.Sentence())
+                .RuleFor(pt => pt.Created, f => f.Date.Past())
                 .RuleFor(pt => pt.Image, f => f.Internet.Avatar())
                 ;
             var product = testProduct.Generate(5);
@@ -148,6 +153,7 @@ namespace SMarketAPI.Models
 
             //modelBuilder.Entity<ProductType>().HasData(productType);
         }
+        public DbSet<SMarketAPI.Models.ContactUs> ContactUs { get; set; }
 
 
     }

@@ -16,7 +16,7 @@ namespace SMarketAPI.Models
         public DateTime ExpirationDate { get; set; }
         public string Description { get; set; }
         public string Image { get; set; } //falta ver
-
+        public DateTime Created { get; set; }
         // Foreign key
         //public int ImageId { get; set; }
         //public int TypeId { get; set; }

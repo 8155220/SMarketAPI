@@ -26,6 +26,7 @@
     <Compile Remove="Migrations\20181007071454_InitialCreate.cs" />
     <Compile Remove="Migrations\20181008040723_InitialCreate.cs" />
     <Compile Remove="Migrations\20181008044735_InitialCreat.cs" />
+    <Compile Remove="Migrations\20181015171524_contact-us-added.cs" />
   </ItemGroup>
 
   <ItemGroup>

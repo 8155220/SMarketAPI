@@ -28,8 +28,16 @@ namespace SMarketAPI.Controllers
 
             return Ok(products);
         }
+        [HttpGet("last")]
+        public async Task<IActionResult> GetLastProducts()
+        {
+            var products = await _context.Products.Include(p => p.Images).OrderByDescending(p=>p.Created).
+                Take(4).ToListAsync();
 
-        // GET: api/Products/5
+            return Ok(products);
+        }
+
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct([FromRoute] int id)
         {

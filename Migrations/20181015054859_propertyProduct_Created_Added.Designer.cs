@@ -3,42 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SMarketAPI.Models;
 
 namespace SMarketAPI.Migrations
 {
     [DbContext(typeof(SMarketContext))]
-    partial class SMarketContextModelSnapshot : ModelSnapshot
+    [Migration("20181015054859_propertyProduct_Created_Added")]
+    partial class propertyProduct_Created_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("SMarketAPI.Models.ContactUs", b =>
-                {
-                    b.Property<int>("ContactUsId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("Message");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Subject");
-
-                    b.HasKey("ContactUsId");
-
-                    b.ToTable("ContactUs");
-                });
 
             modelBuilder.Entity("SMarketAPI.Models.Image", b =>
                 {
@@ -112,16 +93,16 @@ namespace SMarketAPI.Migrations
                     b.ToTable("ProductType");
 
                     b.HasData(
-                        new { ProductTypeId = 1, Description = "Acero", Name = "Ergonómico" },
-                        new { ProductTypeId = 2, Description = "Acero", Name = "Hecho a mano" },
-                        new { ProductTypeId = 3, Description = "Frozen", Name = "Elegante" },
-                        new { ProductTypeId = 4, Description = "Soft", Name = "Refinado" },
-                        new { ProductTypeId = 5, Description = "Fresco", Name = "Sabrosa" },
-                        new { ProductTypeId = 6, Description = "Madera", Name = "Hecho a mano" },
-                        new { ProductTypeId = 7, Description = "Plástico", Name = "Sabrosa" },
-                        new { ProductTypeId = 8, Description = "Madera", Name = "Práctica" },
-                        new { ProductTypeId = 9, Description = "Hormigón", Name = "Rústico" },
-                        new { ProductTypeId = 10, Description = "Soft", Name = "Rústico" }
+                        new { ProductTypeId = 1, Description = "Fresco", Name = "Artesanal" },
+                        new { ProductTypeId = 2, Description = "Hormigón", Name = "Sin marca" },
+                        new { ProductTypeId = 3, Description = "Madera", Name = "Rústico" },
+                        new { ProductTypeId = 4, Description = "Cotton", Name = "Rústico" },
+                        new { ProductTypeId = 5, Description = "Madera", Name = "Artesanal" },
+                        new { ProductTypeId = 6, Description = "Fresco", Name = "Fantástico" },
+                        new { ProductTypeId = 7, Description = "Metal", Name = "Sabrosa" },
+                        new { ProductTypeId = 8, Description = "Frozen", Name = "Sin marca" },
+                        new { ProductTypeId = 9, Description = "Caucho", Name = "Sabrosa" },
+                        new { ProductTypeId = 10, Description = "Fresco", Name = "Hecho a mano" }
                     );
                 });
 
