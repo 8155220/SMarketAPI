@@ -15,6 +15,7 @@ namespace SMarketAPI.Models
         public Decimal BuyPrice { get; set; }
         public DateTime ExpirationDate { get; set; }
         public string Description { get; set; }
+        public int Quantity { get; set; }
         public string Image { get; set; } //falta ver
         public DateTime Created { get; set; }
         // Foreign key

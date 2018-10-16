@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SMarketAPI.Models;
 
 namespace SMarketAPI.Migrations
 {
     [DbContext(typeof(SMarketContext))]
-    partial class SMarketContextModelSnapshot : ModelSnapshot
+    [Migration("20181016214607_ProductDetailNote-modified")]
+    partial class ProductDetailNotemodified
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

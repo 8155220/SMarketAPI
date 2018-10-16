@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SMarketAPI.Models;
 
 namespace SMarketAPI.Migrations
 {
     [DbContext(typeof(SMarketContext))]
-    partial class SMarketContextModelSnapshot : ModelSnapshot
+    [Migration("20181016075855_Note-date_added")]
+    partial class Notedate_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,13 +131,21 @@ namespace SMarketAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Amount");
+                    b.Property<string>("Description");
 
                     b.Property<int>("NoteId");
+
+                    b.Property<string>("NoteType");
 
                     b.Property<int>("ProductId");
 
                     b.Property<int>("Quantity");
+
+                    b.Property<string>("ReceivedBy");
+
+                    b.Property<decimal>("UnitCost");
+
+                    b.Property<string>("UnitType");
 
                     b.HasKey("ProductNoteDetailId");
 
@@ -162,16 +172,16 @@ namespace SMarketAPI.Migrations
                     b.ToTable("ProductType");
 
                     b.HasData(
-                        new { ProductTypeId = 1, Description = "Plástico", Name = "Ergonómico" },
-                        new { ProductTypeId = 2, Description = "Plástico", Name = "Ergonómico" },
-                        new { ProductTypeId = 3, Description = "Acero", Name = "Fantástico" },
-                        new { ProductTypeId = 4, Description = "Granito", Name = "Refinado" },
-                        new { ProductTypeId = 5, Description = "Plástico", Name = "Licencia" },
-                        new { ProductTypeId = 6, Description = "Madera", Name = "Increíble" },
-                        new { ProductTypeId = 7, Description = "Metal", Name = "Gorgeous" },
-                        new { ProductTypeId = 8, Description = "Fresco", Name = "Increíble" },
-                        new { ProductTypeId = 9, Description = "Frozen", Name = "Ergonómico" },
-                        new { ProductTypeId = 10, Description = "Caucho", Name = "Hecho a mano" }
+                        new { ProductTypeId = 1, Description = "Plástico", Name = "Refinado" },
+                        new { ProductTypeId = 2, Description = "Granito", Name = "Ergonómico" },
+                        new { ProductTypeId = 3, Description = "Fresco", Name = "Elegante" },
+                        new { ProductTypeId = 4, Description = "Metal", Name = "Práctica" },
+                        new { ProductTypeId = 5, Description = "Soft", Name = "Licencia" },
+                        new { ProductTypeId = 6, Description = "Granito", Name = "Pequeño" },
+                        new { ProductTypeId = 7, Description = "Granito", Name = "Pequeño" },
+                        new { ProductTypeId = 8, Description = "Fresco", Name = "Sabrosa" },
+                        new { ProductTypeId = 9, Description = "Metal", Name = "Sabrosa" },
+                        new { ProductTypeId = 10, Description = "Cotton", Name = "Refinado" }
                     );
                 });
 

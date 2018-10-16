@@ -17,21 +17,26 @@ namespace SMarketAPI.Models
 
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<SMarketAPI.Models.Image> Image { get; set; }
+        public DbSet<SMarketAPI.Models.ProductType> ProductType { get; set; }
+        public DbSet<SMarketAPI.Models.UnitType> UnitType { get; set; }
+        public DbSet<SMarketAPI.Models.ContactUs> ContactUs { get; set; }
+        public DbSet<SMarketAPI.Models.Note> Note { get; set; }
+        public DbSet<SMarketAPI.Models.ProductNoteDetail> ProductNoteDetail { get; set; }
 
-       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
             modelBuilder.Entity<Product>()
                 .Property(p => p.Created)
                 .HasDefaultValueSql("getdate()");
-            
-        /*modelBuilder.Entity<Product>()
-                .HasMany(p => p.Images)
-                .WithOne(img => img.Product);
 
-        modelBuilder.Entity<Product>()
-                .HasOne(p => p.ProductType); */
+            /*modelBuilder.Entity<Product>()
+                    .HasMany(p => p.Images)
+                    .WithOne(img => img.Product);
+
+            modelBuilder.Entity<Product>()
+                    .HasOne(p => p.ProductType); */
 
             /*modelBuilder.Entity<Product>()
                 .HasOne(p => p.PrincipalImage)
@@ -56,12 +61,6 @@ namespace SMarketAPI.Models
 
         }
 
-        public DbSet<SMarketAPI.Models.Image> Image { get; set; }
-
-        public DbSet<SMarketAPI.Models.ProductType> ProductType { get; set; }
-
-        public DbSet<SMarketAPI.Models.UnitType> UnitType { get; set; }
-
         public void fakeProductTypes(ModelBuilder modelBuilder)
         {
             var id = 1;
@@ -84,7 +83,7 @@ namespace SMarketAPI.Models
             //productType.ForEach(x => x.Products);
 
             //Console.WriteLine(JsonConvert.SerializeObject(productType, Formatting.Indented)); //Super improtante LIsta->Json
-                                                                                              //productType.ForEach(x => Console.WriteLine(x.ToString()));
+            //productType.ForEach(x => Console.WriteLine(x.ToString()));
 
 
             //modelBuilder.Entity<ProductType>().HasData(productType);
@@ -96,7 +95,7 @@ namespace SMarketAPI.Models
                 new UnitType
                 {
                     UnitTypeId = 1,
-                    Symbol="kg",
+                    Symbol = "kg",
                     Description = "kilos"
                 }, new UnitType
                 {
@@ -137,24 +136,21 @@ namespace SMarketAPI.Models
                 {
                     ProductId = x.ProductId,
                     Name = x.Name,
-                    SellPrice=x.SellPrice,
-                    BuyPrice=x.BuyPrice,
-                    ExpirationDate=x.ExpirationDate,
+                    SellPrice = x.SellPrice,
+                    BuyPrice = x.BuyPrice,
+                    ExpirationDate = x.ExpirationDate,
                     Description = x.Description,
-                    Image=x.Image,
-                    ProductTypeId=new Faker().Random.Number(1,10),
-                    UnitTypeId= new Faker().Random.Number(1, 4)
+                    Image = x.Image,
+                    ProductTypeId = new Faker().Random.Number(1, 10),
+                    UnitTypeId = new Faker().Random.Number(1, 4)
                 }));
             //productType.ForEach(x => x.Products);
 
-           // Console.WriteLine(JsonConvert.SerializeObject(productType, Formatting.Indented)); //Super improtante LIsta->Json
-                                                                                              //productType.ForEach(x => Console.WriteLine(x.ToString()));
+            // Console.WriteLine(JsonConvert.SerializeObject(productType, Formatting.Indented)); //Super improtante LIsta->Json
+            //productType.ForEach(x => Console.WriteLine(x.ToString()));
 
 
             //modelBuilder.Entity<ProductType>().HasData(productType);
         }
-        public DbSet<SMarketAPI.Models.ContactUs> ContactUs { get; set; }
-
-
     }
 }
