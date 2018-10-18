@@ -15,5 +15,7 @@ namespace SMarketAPI.Models
         public string Observation { get; set; }
         public string NoteType { get; set; }
         public int Total { get; set; }
+
+        public virtual ICollection<ProductNoteDetail> ProductNoteDetails { get; set; }
     }
 }

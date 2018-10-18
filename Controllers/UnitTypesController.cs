@@ -27,6 +27,11 @@ namespace SMarketAPI.Controllers
             return _context.UnitType;
         }
 
+        public void ProductTypeExists(int v)
+        {
+            throw new NotImplementedException();
+        }
+
         // GET: api/UnitTypes/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUnitType([FromRoute] int id)

@@ -37,7 +37,9 @@ namespace SMarketAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var note = await _context.Note.FindAsync(id);
+            var note = await _context.Note
+                .Include(n=>n.ProductNoteDetails)
+                .FirstAsync(n=>n.NoteId== id);
 
             if (note == null)
             {
@@ -86,17 +88,33 @@ namespace SMarketAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> PostNote([FromBody] DTONote dtoNote)
         {
-
+            //return BadRequest(ModelState);
             Console.WriteLine("DebugHere");
             Note note = dtoNote.Note;
             ProductNoteDetail[] productDetail = dtoNote.ProductNoteDetail;
 
             Console.WriteLine(note.Observation);
-           // Console.WriteLine(productDetail[0].ReceivedBy);
+            // Console.WriteLine(productDetail[0].ReceivedBy);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+
+            productDetail.ToList().ForEach(
+                e =>
+                {
+                    Product product = _context.Products.Find(e.ProductId);
+
+                    if (note.NoteType.Equals("entry"))
+                    {
+                        product.Quantity = product.Quantity + e.Quantity;
+                    } else
+                    {
+                        product.Quantity = product.Quantity - e.Quantity;
+                    }
+                }
+                );
 
             _context.Note.Add(note);
             await _context.SaveChangesAsync();
